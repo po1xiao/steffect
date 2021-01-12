@@ -55,7 +55,7 @@ public class LogUtils {
      */
     private static final int MAX_ENABLED_LOG_LEVEL = 7;
     private static Boolean sDebugLoggingEnabledForTests = null;
-    private static boolean sIsLoggable = false;
+    private static boolean sIsLoggable = true;
 
     public static void setIsLoggable(boolean isLoggable) {
         sIsLoggable = isLoggable;

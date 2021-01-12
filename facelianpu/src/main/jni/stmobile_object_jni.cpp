@@ -4,6 +4,7 @@
 #include "st_mobile_object.h"
 #include "utils.h"
 #include<fcntl.h>
+#include <cstring>
 #define  LOG_TAG    "STMobileObjectNative"
 
 extern "C" {

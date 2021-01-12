@@ -7,7 +7,7 @@
 #include "prebuilt/include/st_mobile_common.h"
 #include "prebuilt/include/st_mobile_sticker.h"
 #include "utils.h"
-
+#include <cstring>
 #include <android/asset_manager.h>
 #include <android/asset_manager_jni.h>
 

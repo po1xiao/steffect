@@ -6,7 +6,7 @@
 #include <jni.h>
 #include "st_mobile_sticker.h"
 #include "st_mobile_face_attribute.h"
-
+#include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
 #include <android/log.h>

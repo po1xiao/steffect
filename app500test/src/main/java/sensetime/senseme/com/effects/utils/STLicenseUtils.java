@@ -75,10 +75,11 @@ public class STLicenseUtils {
          */
         SharedPreferences sp = context.getApplicationContext().getSharedPreferences(PREF_ACTIVATE_CODE_FILE, Context.MODE_PRIVATE);
         String activateCode = sp.getString(PREF_ACTIVATE_CODE, null);
-        Integer error = new Integer(-1);
+        Integer error = Integer.valueOf(-1);
         if (activateCode == null|| (STMobileAuthentificationNative.checkActiveCodeFromBuffer(context, licenseBuffer, licenseBuffer.length(), activateCode, activateCode.length()) != 0)) {
-            LogUtils.e(TAG, "activeCode: " + (activateCode == null));
+            LogUtils.e(TAG, "activeCode: " + (activateCode == null)+"; licenseBuffer.length() = "+licenseBuffer.length());
             activateCode = STMobileAuthentificationNative.generateActiveCodeFromBuffer(context, licenseBuffer, licenseBuffer.length());
+            LogUtils.e(TAG, "generate license activateCode: " + activateCode);
             if (activateCode != null && activateCode.length() >0) {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString(PREF_ACTIVATE_CODE, activateCode);

@@ -7,7 +7,7 @@
 #include "stmobile_sound_play_jni.h"
 #include "utils.h"
 #include "jvmutil.h"
-
+#include <cstring>
 #define  LOG_TAG    "STMobileSticker"
 
 

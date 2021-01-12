@@ -6,7 +6,7 @@
 #include <android/log.h>
 #include "prebuilt/include/st_mobile_face_attribute.h"
 #include "utils.h"
-
+#include <cstring>
 #include<fcntl.h>
 
 #define  LOG_TAG "STMobileFaceAttributeNative"

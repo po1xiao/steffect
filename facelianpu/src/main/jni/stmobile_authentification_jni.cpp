@@ -6,7 +6,7 @@
 #include <time.h>
 #include "st_mobile_license.h"
 #include "utils.h"
-
+#include <cstring>
 #include<fcntl.h>
 
 #define  LOG_TAG    "STMobileAuthentificationNative"

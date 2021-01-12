@@ -3,7 +3,7 @@
 #include <math.h>
 #include <st_mobile_beautify.h>
 #include "utils.h"
-
+#include <cstring>
 #define  LOG_TAG    "STBeautifyNative"
 
 extern "C" {

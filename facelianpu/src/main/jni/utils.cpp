@@ -1,7 +1,7 @@
 #include "utils.h"
 #include <st_mobile_common.h>
 #include <st_mobile_human_action.h>
-
+#include <cstring>
 #define  LOG_TAG    "utils"
 
 long getCurrentTime() {

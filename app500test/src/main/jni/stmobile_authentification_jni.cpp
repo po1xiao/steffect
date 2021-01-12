@@ -6,7 +6,7 @@
 #include <time.h>
 #include "st_mobile_license.h"
 #include "utils.h"
-
+#include <cstring>
 #include<fcntl.h>
 
 #define  LOG_TAG    "STMobileAuthentificationNative"
@@ -19,16 +19,16 @@ JNIEXPORT jint JNICALL Java_com_sensetime_stmobile_STMobileAuthentificationNativ
 };
 
 JNIEXPORT jstring JNICALL Java_com_sensetime_stmobile_STMobileAuthentificationNative_generateActiveCode(JNIEnv * env, jobject obj, jobject context, jstring licensePath) {
-    LOGI("-->> 111generateActiveCode: start genrate active code");
+    LOGI("-->> generateActiveCode: start genrate active code");
 //    const char *targetProductName = env->GetStringUTFChars(productName, 0);
     const char *targetLicensePath = env->GetStringUTFChars(licensePath, 0);
     char * activationCode = new char[1024];
     memset(activationCode, 0, 1024);
     int len = 1024;
     //	jint *len = (jint*) (env->GetPrimitiveArrayCritical(activeCodeLen, 0));
-    LOGI("-->> targetLicensePath=%x, targetActivationCode=%x, activeCodeLen=%x", targetLicensePath, activationCode, len);
+    LOGI("-->> generateActiveCode targetLicensePath=%x, targetActivationCode=%x, activeCodeLen=%x", targetLicensePath, activationCode, len);
     int res = st_mobile_generate_activecode(env, context, targetLicensePath, activationCode, &len);
-	LOGI("-->> targetLicensePath=%s, targetActivationCode=%s",targetLicensePath, activationCode);
+	LOGI("-->> generateActiveCode targetLicensePath=%s, targetActivationCode=%s",targetLicensePath, activationCode);
     LOGI("-->> generateActiveCode: res=%d",res);
     jstring targetActivationCode = env->NewStringUTF(activationCode);
 
@@ -56,16 +56,16 @@ JNIEXPORT jint JNICALL Java_com_sensetime_stmobile_STMobileAuthentificationNativ
 }
 
 JNIEXPORT jstring JNICALL Java_com_sensetime_stmobile_STMobileAuthentificationNative_generateActiveCodeFromBuffer(JNIEnv * env, jobject obj, jobject context, jstring licenseBuffer, jint licenseSize) {
-    LOGI("-->> 222generateActiveCodeFromBuffer: start genrate active code");
+    LOGE("-->> 222generateActiveCodeFromBuffer: start genrate active code");
     const char *targetLicenseBuffer = env->GetStringUTFChars(licenseBuffer, 0);
     char * activationCode = new char[1024];
     memset(activationCode, 0, 1024);
     int len = 1024;
     int res = st_mobile_generate_activecode_from_buffer(env, context, targetLicenseBuffer, licenseSize, activationCode, &len);
-    LOGI("-->> targetLicenseBuffer=%s, license_size=%d, targetActivationCode=%s",targetLicenseBuffer, licenseSize, activationCode);
-    LOGI("-->> generateActiveCode: res=%d",res);
+    LOGE("-->> generateActiveCode targetLicenseBuffer=%s, license_size=%d, targetActivationCode=%s",targetLicenseBuffer, licenseSize, activationCode);
+    LOGE("-->> generateActiveCode: res=%d",res);
     jstring targetActivationCode = env->NewStringUTF(activationCode);
-
+    LOGE("-->> generateActiveCode: res=%s",targetActivationCode);
     env->ReleaseStringUTFChars(licenseBuffer, targetLicenseBuffer);
     delete[] activationCode;
     return targetActivationCode;
